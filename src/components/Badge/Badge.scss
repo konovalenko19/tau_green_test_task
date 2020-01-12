@@ -1,0 +1,25 @@
+.badge {
+  display: inline-flex;
+  width: auto;
+  max-width: 100%;
+  margin: 0;
+  padding: 2px 6px;
+  border-radius: 4px;
+  border: 0;
+  box-sizing: border-box;
+  outline: 0;
+
+  font-size: inherit;
+  font-style: normal;
+  font-weight: 600;
+  text-decoration: none;
+  text-align: center;
+  white-space: nowrap;
+
+  vertical-align: middle;
+
+  &--lightblue {
+    background-color: #dbe4ef;
+    color: #2A79EE;
+  }
+}

@@ -1,0 +1,24 @@
+.menu-item {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  background-color: #E5E5E5;
+  border-bottom: 1px solid #E6EAED;
+  border-left: 4px solid transparent;
+  padding: 28px 28px 28px 20px;
+  font-weight: 500;
+
+  &--active {
+    border-left-color: #2E83FF;
+    color: #2E83FF;
+  }
+
+  &__icon {
+    display: flex;
+    margin-right: 20px;
+  }
+
+  &__text {
+
+  }
+}

@@ -1,0 +1,15 @@
+.tab-item {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border-bottom: 4px solid transparent;
+  min-height: 80px;
+  padding: 0 2px;
+  font-weight: bold;
+  font-size: 20px;
+
+  &--active {
+    border-bottom-color: #2E83FF;
+  }
+}
