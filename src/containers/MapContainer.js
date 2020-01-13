@@ -1,9 +1,10 @@
-import React, { Component } from "react";
+import React, { Component, Fragment } from "react";
 import { connect } from "react-redux";
-// import { Map, GoogleApiWrapper, Marker } from "google-maps-react";
+import { Map, GoogleApiWrapper, Marker } from "google-maps-react";
 
 import {
-  Map,
+  Loader,
+  // Map,
   Station,
 } from "../components";
 
@@ -16,7 +17,9 @@ import {
   fetchLocationDetails,
 } from "../actions/locationViewActions";
 
-import StationContainer from "./StationContainer";
+import LocationContainer from "./LocationContainer";
+
+import { MAP_STYLES } from "../constants/mapStyles";
 
 class MapContainer extends Component {
 
@@ -33,29 +36,24 @@ class MapContainer extends Component {
       openLocation,
     } = this.props;
 
-    console.log(locations);
-
     if (locations.fetching) {
       return (
-        <div>Loading...</div>
+        <Loader>Loading...</Loader>
       )
     }
 
     return (
-      <>
-        <Map
+      <Fragment>
+        {/*<Map
           locations={locations.data}
           fetchLocationDetails={fetchLocationDetails}
           openLocation={openLocation}
-        />
+        /> */}
 
-        {locationView.opened &&
-          <StationContainer/>
-        }
-
-        {/* <Map
+        <Map
           google={this.props.google}
           zoom={14}
+          styles={MAP_STYLES}
           initialCenter={{ lat: 37.44446960614344, lng: -122.06634320318699}}
         >
           {locations.data && locations.data.map(location => {
@@ -71,8 +69,12 @@ class MapContainer extends Component {
               />
             )
           })}
-        </Map> */}
-      </>
+        </Map>
+
+        {locationView.opened &&
+          <LocationContainer/>
+        }
+      </Fragment>
     );
   }
 
@@ -92,8 +94,8 @@ const mapDispatchToProps = dispatch => ({
   openLocation: openLocation(dispatch),
 });
 
-// export default GoogleApiWrapper({
-//   apiKey: "AIzaSyBjORL0jNsLJDB1CAqRfhyitfZTm4c1LXc"
-// })(connect(mapStateToProps, mapDispatchToProps)(MapContainer));
+export default GoogleApiWrapper({
+  apiKey: "AIzaSyBjORL0jNsLJDB1CAqRfhyitfZTm4c1LXc"
+})(connect(mapStateToProps, mapDispatchToProps)(MapContainer));
 
-export default connect(mapStateToProps, mapDispatchToProps)(MapContainer);
+// export default connect(mapStateToProps, mapDispatchToProps)(MapContainer);

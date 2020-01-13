@@ -1,4 +1,4 @@
-.station {
+.location {
   width: 480px;
   position: absolute;
   top: 0;
@@ -6,6 +6,8 @@
   bottom: 0;
   z-index: 2;
   background-color: #fff;
+  overflow: auto;
+  -webkit-overflow-scrolling: touch;
 
   &__slider {
     width: 100%;
