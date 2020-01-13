@@ -29,15 +29,12 @@ class MapContainer extends Component {
     const {
       locations,
       locationView,
-
       fetchLocationDetails,
       openLocation,
     } = this.props;
 
     if (locations.fetching) {
-      return (
-        <Loader>Loading...</Loader>
-      )
+      return <Loader>Loading...</Loader>;
     }
 
     return (
@@ -95,5 +92,3 @@ const mapDispatchToProps = dispatch => ({
 export default GoogleApiWrapper({
   apiKey: "AIzaSyBjORL0jNsLJDB1CAqRfhyitfZTm4c1LXc"
 })(connect(mapStateToProps, mapDispatchToProps)(MapContainer));
-
-// export default connect(mapStateToProps, mapDispatchToProps)(MapContainer);

@@ -6,7 +6,6 @@ import ErrorBoundary from "./ErrorBoundary";
 import Loader from "./Loader";
 import { Location, LocationLoader } from "./Location";
 import Logo from "./Logo";
-import Map from "./Map";
 import MenuItem from "./MenuItem";
 import Pin from "./Pin";
 import Rating from "./Rating";
@@ -24,7 +23,6 @@ export {
   Location,
   LocationLoader,
   Logo,
-  Map,
   MenuItem,
   Pin,
   Rating,
