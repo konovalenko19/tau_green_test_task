@@ -3,6 +3,7 @@ import Badge from "./Badge";
 import Connector from "./Connector";
 import Divider from "./Divider";
 import ErrorBoundary from "./ErrorBoundary";
+import Gallery from "./Gallery";
 import Loader from "./Loader";
 import { Location, LocationLoader } from "./Location";
 import Logo from "./Logo";
@@ -18,6 +19,7 @@ export {
   Connector,
   Divider,
   ErrorBoundary,
+  Gallery,
   Loader,
   Location,
   LocationLoader,

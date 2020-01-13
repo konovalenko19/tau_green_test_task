@@ -4,7 +4,6 @@ import { Map, GoogleApiWrapper, Marker } from "google-maps-react";
 
 import {
   Loader,
-  Pin,
 } from "../components";
 
 import {

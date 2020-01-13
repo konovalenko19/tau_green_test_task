@@ -6,6 +6,7 @@ import Rating from "../Rating";
 import Badge from "../Badge";
 import Connector from "../Connector";
 import Divider from "../Divider";
+import Gallery from "../Gallery";
 
 import LocationIcon from "../../icons/LocationIcon";
 import ClockIcon from "../../icons/ClockIcon";
@@ -39,7 +40,11 @@ const Location = props => {
         className && className,
       )}>
 
-      <div className="location__slider"/>
+      <div className="location__slider">
+        <Gallery
+          images={data.photos}
+        />
+      </div>
 
       <div className="location__inner">
         <Rating>{data.rating}</Rating>
@@ -99,7 +104,6 @@ const Location = props => {
 Location.propTypes = {
   component: PropTypes.string,
   className: PropTypes.string,
-  data: PropTypes.object,
 };
 
 export default Location;
