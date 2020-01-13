@@ -1,11 +1,12 @@
 import React from "react";
+import PropTypes from "prop-types";
 
 import StarIcon from "../../icons/StarIcon";
 import "./Rating.scss";
 
 const Rating = props => {
   const {
-    value,
+    children,
   } = props;
 
   return (
@@ -14,10 +15,14 @@ const Rating = props => {
         <StarIcon/>
       </div>
       <div className="rating__value">
-        {value}
+        {children}
       </div>
     </div>
   );
+};
+
+Rating.propTypes = {
+  children: PropTypes.node,
 };
 
 export default Rating;

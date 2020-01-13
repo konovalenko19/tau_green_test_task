@@ -1,111 +1,116 @@
 import React from "react";
-import "./App.css";
+import { connect } from "react-redux";
+
+import { Map, GoogleApiWrapper, Marker } from "google-maps-react";
 
 import {
-  Avatar,
+  fetchLocations,
+} from "./actions/locationsActions";
+
+import {
   Badge,
   Connector,
-  Loader,
   Logo,
-  MenuItem,
-  Pin,
-  Rating,
   TabItem,
+  MenuItem,
+  Rating,
   UserCard,
 } from "./components";
 
+import MapIcon from "./icons/MapIcon";
 import LocationIcon from "./icons/LocationIcon";
 import ClockIcon from "./icons/ClockIcon";
-import CarIcon from "./icons/CarIcon";
-import BikeIcon from "./icons/BikeIcon";
-import MapIcon from "./icons/MapIcon";
-import ConnectorIcon from "./icons/ConnectorIcon";
 
-function App() {
-  return (
-    <div className="App">
+import "./App.css";
 
-      <Logo/>
+class App extends React.Component {
+  componentDidMount() {
+    this.props.fetchLocations();
+  }
 
-      <MenuItem
-        active
-        startIcon={<MapIcon/>}>
-        Map
-      </MenuItem>
+  render() {
+    return (
+      <div className="app">
 
-      <TabItem active>All locations</TabItem>
+        <div className="leftside">
+          <div className="leftside__logo">
+            <Logo/>
+          </div>
 
-      <br/>
+          <div className="leftside__usercard">
+            <UserCard
+              userName="Hryhorii Zlowetski"
+              avatarProps={{
+                src: "https://i.mycdn.me/image?id=550261073340&plc=WEB&tkn=*2qnhaF5wDXBImjg0Oh-VDFH_32M&fn=sqr_288",
+              }}
+            />
+          </div>
 
-      <Rating value="4.1"/>
-
-      <Badge>6</Badge>
-
-      <Pin/>
-      <Pin color="red"/>
-
-      <Connector
-        type="Type 2"
-        power="6.4"
-        price="0.034"
-        parking={{ car: true, bike: true }}
-      />
-
-      <Connector
-        type="Type 2"
-        power="6.4"
-        price="0.034"
-        parking={{ car: true, bike: false }}
-        state="busy"
-      />
-
-      <Connector
-        type="Type 2"
-        power="6.4"
-        price="0.034"
-        parking={{ car: false, bike: true }}
-        state="offline"
-      />
-
-      <br/>
-      <br/>
-
-      <UserCard
-        userName="Konovalenko Vladimir"
-      />
-
-      <LocationIcon/>
-      <ClockIcon/>
-      <CarIcon/>
-      <BikeIcon/>
-      <ConnectorIcon/>
-      <MapIcon/>
-
-
-      <div style={{ display: "flex" }}>
-        <div style={{ width: "4rem", height: "5rem", backgroundColor: "#eee" }}>
-          <Loader/>
+          <MenuItem
+            active
+            startIcon={<MapIcon/>}>
+            Map
+          </MenuItem>
         </div>
 
-        <div style={{ width: "6rem", height: "5rem", backgroundColor: "#eee" }}>
-          <Loader>Loading...</Loader>
+        <div className="rightside">
+          <div className="topbar">
+            <TabItem active>All locations</TabItem>
+          </div>
+
+          <div className="rightside__main">
+            <div className="connector-preview">
+              Slider Here
+              <br/>
+              <Rating>4.1</Rating>
+              <br/>
+              <h2>Heumarkt</h2>
+              <LocationIcon/> Muhnauser Str. 18, Grossengottern, Germany
+              <br/>
+              <ClockIcon/> Open now: 9:30 - 17:30
+              <h2>Services <Badge>6</Badge></h2>
+              <br/>
+              <Connector
+                state="available"
+                type="Type 2"
+                power={11}
+                price={0.0014}
+                parking={{ car: true, bike: true }}
+              />
+              <Connector
+                state="busy"
+                type="Type 2"
+                power={11}
+                price={0.0014}
+                parking={{ car: true, bike: true }}
+              />
+              <Connector
+                state="offline"
+                type="Type 2"
+                power={11}
+                price={0.0014}
+                parking={{ car: true, bike: true }}
+              />
+            </div>
+
+            <Map
+              google={this.props.google}
+              zoom={14}
+              initialCenter={{ lat: 37.44446960614344, lng: -122.06634320318699}}
+            />
+          </div>
+
         </div>
 
-        <div style={{ width: "8rem", height: "5rem", backgroundColor: "#eee" }}>
-          <Loader inline>Loading...</Loader>
-        </div>
       </div>
-
-      <Avatar
-        isRounded
-        size="90px"
-        alt="girl"
-        src="https://interesnoznat.com/wp-content/uploads/24175538_132819170750132_7498856231293943808_n-688x860.jpg">
-        Alena
-      </Avatar>
-
-    </div>
-  );
+    );
+  }
 }
 
-export default App;
+const mapDispatchToProps = dispatch => ({
+  fetchLocations: fetchLocations(dispatch),
+})
+
+export default GoogleApiWrapper({
+  apiKey: "AIzaSyBjORL0jNsLJDB1CAqRfhyitfZTm4c1LXc"
+})(connect(null, mapDispatchToProps)(App));
