@@ -7,7 +7,6 @@ import Loader from "./Loader";
 import { Location, LocationLoader } from "./Location";
 import Logo from "./Logo";
 import MenuItem from "./MenuItem";
-import Pin from "./Pin";
 import Rating from "./Rating";
 import ScrollToTop from "./ScrollToTop";
 import TabItem from "./TabItem";
@@ -24,7 +23,6 @@ export {
   LocationLoader,
   Logo,
   MenuItem,
-  Pin,
   Rating,
   ScrollToTop,
   TabItem,

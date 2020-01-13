@@ -4,6 +4,7 @@ import { Map, GoogleApiWrapper, Marker } from "google-maps-react";
 
 import {
   Loader,
+  Pin,
 } from "../components";
 
 import {
@@ -16,6 +17,10 @@ import {
 } from "../actions/locationViewActions";
 
 import LocationContainer from "./LocationContainer";
+
+import bluePin from "../images/blue_pin.png";
+import greenPin from "../images/green_pin.png";
+import grayPin from "../images/gray_pin.png";
 
 import { MAP_STYLES } from "../constants/mapStyles";
 
@@ -41,14 +46,28 @@ class MapContainer extends Component {
       <Fragment>
         <Map
           google={this.props.google}
-          zoom={14}
+          zoom={3}
           styles={MAP_STYLES}
           initialCenter={{
             lat: 37.44446960614344,
             lng: -122.06634320318699,
           }}>
 
-          {locations.data.map(({ id, coordinates }) => {
+          {locations.data.map(({ id, coordinates, evse_statuses }) => {
+            let markerIconSrc;
+
+            const { available, busy } = evse_statuses;
+
+            if (available > 0) {
+              markerIconSrc = greenPin;
+            }
+            else if (busy > 0) {
+              markerIconSrc = bluePin;
+            }
+            else {
+              markerIconSrc = grayPin;
+            }
+
             return (
               <Marker
                 key={id}
@@ -60,6 +79,9 @@ class MapContainer extends Component {
                 position={{
                   lat: coordinates.lat,
                   lng: coordinates.lng,
+                }}
+                icon={{
+                  url: markerIconSrc,
                 }}
               />
             )

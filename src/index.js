@@ -3,12 +3,11 @@ import ReactDOM from "react-dom";
 import { Provider } from "react-redux";
 import { BrowserRouter as Router } from "react-router-dom";
 
-import "./index.css";
-
 import configureStore from "./store/configureStore";
+
 import ErrorBoundary from "./components/ErrorBoundary";
 import ScrollToTop from "./components/ScrollToTop";
-import App from "./App";
+import App from "./components/App";
 
 
 const store = configureStore();
