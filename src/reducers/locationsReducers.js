@@ -14,7 +14,6 @@ const locationsReducers = (state = initialState, action) => {
         fetching: true,
       };
     case "FETCH_LOCATIONS_SUCCESS":
-      console.log(action);
       return {
         ...state,
         fetching: false,

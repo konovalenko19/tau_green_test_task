@@ -2,7 +2,6 @@ import React from "react";
 import { connect } from "react-redux";
 
 import {
-  Loader,
   Location,
   LocationLoader,
 } from "../components";
@@ -12,7 +11,6 @@ const LocationContainer = props => {
     locationView: {
       opened,
       fetching,
-      error,
       data,
     },
   } = props;

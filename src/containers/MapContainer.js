@@ -4,8 +4,6 @@ import { Map, GoogleApiWrapper, Marker } from "google-maps-react";
 
 import {
   Loader,
-  // Map,
-  Station,
 } from "../components";
 
 import {
@@ -44,28 +42,28 @@ class MapContainer extends Component {
 
     return (
       <Fragment>
-        {/*<Map
-          locations={locations.data}
-          fetchLocationDetails={fetchLocationDetails}
-          openLocation={openLocation}
-        /> */}
-
         <Map
           google={this.props.google}
           zoom={14}
           styles={MAP_STYLES}
-          initialCenter={{ lat: 37.44446960614344, lng: -122.06634320318699}}
-        >
-          {locations.data && locations.data.map(location => {
+          initialCenter={{
+            lat: 37.44446960614344,
+            lng: -122.06634320318699,
+          }}>
+
+          {locations.data.map(({ id, coordinates }) => {
             return (
               <Marker
-                key={location.id}
+                key={id}
                 onClick={() => {
                   openLocation();
-                  fetchLocationDetails(location.id);
+                  fetchLocationDetails(id);
                 }}
                 name={'Current location'}
-                position={{ lat: location.coordinates.lat, lng: location.coordinates.lng }}
+                position={{
+                  lat: coordinates.lat,
+                  lng: coordinates.lng,
+                }}
               />
             )
           })}

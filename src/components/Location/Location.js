@@ -1,4 +1,4 @@
-import React, { Fragment } from "react";
+import React from "react";
 import PropTypes from "prop-types";
 import classnames from "classnames";
 
@@ -6,7 +6,6 @@ import Rating from "../Rating";
 import Badge from "../Badge";
 import Connector from "../Connector";
 import Divider from "../Divider";
-import Loader from "../Loader";
 
 import LocationIcon from "../../icons/LocationIcon";
 import ClockIcon from "../../icons/ClockIcon";
