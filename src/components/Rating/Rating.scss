@@ -1,13 +1,10 @@
 .rating {
   display: flex;
   flex-direction: row;
+  margin-bottom: 8px;
   color: #F69B0F;
 
   &__icon {
     margin-right: 12px;
-  }
-
-  &__value {
-    
   }
 }

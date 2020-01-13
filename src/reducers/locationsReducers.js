@@ -5,22 +5,21 @@ const initialState = {
 };
 
 
-export default function locationsReducers(state = initialState, action) {
-  switch(action) {
+const locationsReducers = (state = initialState, action) => {
+  switch(action.type) {
 
     case "FETCH_LOCATIONS_REQUEST":
       return {
         ...state,
         fetching: true,
       };
-
     case "FETCH_LOCATIONS_SUCCESS":
+      console.log(action);
       return {
         ...state,
         fetching: false,
         data: action.payload,
       };
-
     case "FETCH_LOCATIONS_FAILURE":
       return {
         ...state,
@@ -29,9 +28,12 @@ export default function locationsReducers(state = initialState, action) {
         error: action.payload,
       };
 
+
     default:
       return {
         ...state,
-      }
+      };
   }
 }
+
+export default locationsReducers;

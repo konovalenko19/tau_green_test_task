@@ -30,7 +30,7 @@ export default class ErrorBoundary extends Component {
 
     if (errorInfo) {
       return (
-        <div>
+        <div className="error-boundary">
           <h2>Что-то пошло не так...</h2>
           <details style={{ whiteSpace: "pre-wrap" }}>
             {error && error.toString()}

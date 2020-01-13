@@ -1,16 +1,22 @@
 .app {
-  display: flex;
-  flex-direction: row;
   height: 100%;
+  padding-left: 260px;
+  position: relative;
+  background-color: #efefef;
 }
 
 .leftside {
-  min-width: 260px;
+  width: 260px;
   height: 100%;
   display: flex;
   flex-direction: column;
   background-color: #fff;
-  border-right: 1px solid #eee;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  box-shadow: 1px 0px 5px rgba(0,0,0,.05);
+  z-index: 2;
 }
 
 .leftside__logo {
@@ -29,31 +35,22 @@
 .rightside {
   width: 100%;
   height: 100%;
-  background-color: #fff;
   display: flex;
   flex-direction: column;
+  position: relative;
+  z-index: 1;
 }
 
 .topbar {
   height: 80px;
   padding: 0 60px;
+  background-color: #fff;
 }
 
 .rightside__main {
   height: 100%;
-  /*position: relative;*/
+  position: relative;
+  padding-left: 480px;
 }
-
-.connector-preview {
-  width: 480px;
-  position: absolute;
-  top: 90px;
-  left: 270px;
-  bottom: 10px;
-  z-index: 2;
-  background-color: #fff;
-  padding: 0 32px 32px;
-}
-
 
 

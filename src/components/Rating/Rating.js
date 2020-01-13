@@ -14,7 +14,7 @@ const Rating = props => {
       <div className="rating__icon">
         <StarIcon/>
       </div>
-      <div className="rating__value">
+      <div>
         {children}
       </div>
     </div>
