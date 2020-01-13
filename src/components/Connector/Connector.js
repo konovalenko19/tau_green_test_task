@@ -35,21 +35,23 @@ const Connector = props => {
         <ConnectorIcon/>
       </div>
 
-      <div className="connector__type">
-        {type}
-      </div>
+      <div className="connector__data">
+        <div className="connector__type">
+          {type}
+        </div>
 
-      <div className="connector__power">
-        {power} kW
-      </div>
+        <div className="connector__power">
+          {power} kW
+        </div>
 
-      <div className="connector__price">
-        {price} €/min
-      </div>
+        <div className="connector__price">
+          {price} €/min
+        </div>
 
-      <div className="connector__parking">
-        {parking.car && <CarIcon/>}
-        {parking.bike && <BikeIcon/>}
+        <div className="connector__parking">
+          {parking.car && <CarIcon/>}
+          {parking.bike && <BikeIcon/>}
+        </div>
       </div>
     </Component>
   );
